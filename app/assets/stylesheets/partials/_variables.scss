@@ -1,0 +1,42 @@
+	/* spacing */
+  $baselineheight : 1.4;
+  $basespacingunit: 20px;
+
+  /* type */
+  $serif					: Georgia,"Times New Roman",Times,serif;;
+	$sans-serif			: "Myriad Pro", "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
+	$heading-font		: $sans-serif;
+	$monospace      : Inconsolata, Monaco, Consolas, "Andale Mono", "Bitstream Vera Sans Mono", "Courier New", Courier, monospace;
+
+	/* greyscale */
+	$black				: rgb(0,0,0);
+	$darkgrey			: rgb(30,30,30);
+	$charcoalgrey	: rgb(60,60,60);
+	$midgrey			: rgb(207,207,207);
+	$lightgrey		: rgb(242,242,242);
+	$white				: rgb(255,255,255);
+	$offwhite			: rgb(246,246,255);
+
+	/* brand color palette */
+	$brand-alpha		: rgb(85,98,112); /* grey */
+	$brand-beta			: rgb(78,205,196); /* blue */
+	$brand-gamma		: rgb(199,244,100); /* green */
+	$brand-omnicron	: rgb(255,107,107);	/* light pink */
+	$brand-omega		: rgb(196,77,88); /* dark pink */
+
+
+	/* links */
+	$linkcol				: $brand-beta;
+	$linkcolhover		: darken($linkcol, 10);
+	$linkcolvisited	: $linkcolhover;
+	$linkcolfocus		: $linkcolhover;
+
+	/* more color palettes */
+	$alertcolor 		: rgb(252,248,227);
+	$errorcolor 		: rgb(218,79,73);
+	$dangercolor 		: rgb(218,79,73);
+	$infocolor 			: rgb(217,237,247);
+	$inverscolor 		: rgb(65,65,65);
+	$successcolor 	: rgb(91,183,91);
+	$warningcolor 	: rgb(250,167,50);
+

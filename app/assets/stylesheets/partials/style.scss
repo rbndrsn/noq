@@ -1,0 +1,138 @@
+/* ROOT
+  ========================================================================== */
+  @import "reset";
+  @import "mixins";
+  @import "variables";
+	* {
+		/* apply a natural box layout model to all elements - paul irish*/
+		@include box-sizing();
+	}
+
+  @-ms-viewport { width: device-width; }
+  @viewport {  width: device-width; }
+
+  html {
+    font-size: 100%;
+    background: $charcoalgrey;
+    background-size: cover;
+    height: 100%;
+	}
+
+	body {
+		min-width:252px;
+    min-height: 100%;
+		width: 100%;
+		margin: 0 auto;
+		padding: 0 0 30px 0;
+		font-family: $sans-serif;
+		color: $charcoalgrey;
+		-webkit-font-smoothing: antialiased;
+    position:relative;
+	}
+
+  .wrapper {
+    @extend .cf;
+    position: relative;
+    max-width: 62.5em;
+    width: 96%;
+    margin: 0 auto;
+    padding: 0;
+  }
+
+	/* Disable iOS/WinMobile font size changes */
+	@media screen and (max-width: 600px), screen and (max-device-width: 480px) {
+		html {
+			-o-text-size-adjust: none;
+			-ms-text-size-adjust: none;
+			-moz-text-size-adjust: none;
+			-webkit-text-size-adjust: none;
+		}
+	}
+
+
+/* GLOBAL LINKS
+  ========================================================================== */
+	a {
+		color: $linkcol;
+		text-decoration: underline;
+		&:visited {
+			color: $linkcolvisited;
+			text-decoration: underline;
+		}
+		&:hover {
+			color: $linkcolhover;
+			text-decoration: none;
+		}
+		&:focus {
+			outline: thin dotted;
+			color: $linkcolfocus;
+		}
+	}
+	a:hover,
+	a:active {
+		outline : 0;
+	}
+
+
+/* TYPOGRAPHY
+  ========================================================================== */
+	@import "typography";
+
+
+/* FIGURES & IMAGES
+  ========================================================================== */
+  hr {
+		display : block;
+		margin : 1em 0;
+		padding : 0;
+		height : 1px;
+		border : 0;
+		border-top : 1px solid $brand-alpha;
+		border-bottom : 1px solid $brand-alpha;
+	}
+  img {
+    max-width: 100%;
+    border-width: 0;
+    vertical-align: middle;
+    -ms-interpolation-mode: bicubic;
+  }
+  svg:not(:root) {
+  	overflow: hidden;
+  }
+  figure {
+  	margin-bottom: $baselineheight;
+    img {
+    	margin-bottom: $baselineheight / 4;
+    }
+    figcaption {
+	    display: block;
+	    font-weight: normal;
+	    font-size : 0.95em ;
+	    color: $darkgrey;
+    }
+	}
+
+/* NON-SEMANTIC HELPER CLASSES
+  ========================================================================== */
+  @import "helpers";
+
+
+/* LAYOUT
+  ========================================================================== */
+  @import "layout";
+
+
+/* MAIN SECTIONS
+  ========================================================================== */
+	@import "header";
+  @import "modules";
+  @import "home";
+	@import "footer";
+
+
+/* PRINT STYLES
+  ========================================================================== */
+	@import "print";
+
+
+
