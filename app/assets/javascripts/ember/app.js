@@ -1,11 +1,12 @@
-Noq = Ember.Application.create();
+Noq = Ember.Application.create({
+  LOG_TRANSITIONS: true
+});
 
 Noq.Router.map(function() {
   this.resource('users', function() {
     this.route('new');
-    this.resource('show', { path: ':user_id' }, function() {
-      this.route('edit');
-    })
+    this.route('show', { path: ':user_id' });
+    this.route('edit', { path: ':user_id/edit' });
   });
 });
 
@@ -36,5 +37,17 @@ Noq.User.FIXTURES = [
 Noq.UsersRoute = Ember.Route.extend({
   model: function() {
     return Noq.User.find();
+  }
+});
+
+Noq.UsersShowRoute = Ember.Route.extend({
+  model: function(params) {
+    return Noq.User.find(params.user_id);
+  }
+});
+
+Noq.UsersEditRoute = Ember.Route.extend({
+  model: function(params) {
+    return Noq.User.find(params.user_id);
   }
 });

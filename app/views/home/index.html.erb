@@ -1,32 +1,29 @@
 <script type="text/x-handlebars">
-  <h1>Noq</h1>
-  {{outlet}}
+  
+      <h1>Embryo</h1>
+      {{outlet}}
+   
 </script>
 
 <script type="text/x-handlebars" data-template-name="users">
   <h2>Users</h2>
-  {{#each model}}
-    <p>{{name}}</p>
-  {{/each}}
+    {{#each user in model}}
+      <p>
+        {{#linkTo users.show user}}{{user.name}}{{/linkTo}}
+          [ {{#linkTo users.edit user}}edit{{/linkTo}} ]
+     </p>
+    {{/each}}
   {{outlet}}
 </script>
 
-<script type="text/x-handlebars" data-template-name="users/index">
-  <p>Users Index</p>
-</script>
-
 <script type="text/x-handlebars" data-template-name="users/new">
-  <p>Users New</p>
+  <p>Add a User</p>
 </script>
 
 <script type="text/x-handlebars" data-template-name="users/show">
-  <p>Users Show</p>
+  <p>Show: {{name}}</p>
 </script>
 
-<script type="text/x-handlebars" data-template-name="users/show/index">
-  <p>Users Show Index</p>
-</script>
-
-<script type="text/x-handlebars" data-template-name="users/show/edit">
-  <p>Users Show Edit</p>
+<script type="text/x-handlebars" data-template-name="users/edit">
+  <p>Edit: {{name}}</p>
 </script>
