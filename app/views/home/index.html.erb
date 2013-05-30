@@ -16,15 +16,31 @@
 
 <script type="text/x-handlebars" data-template-name="users">
  
-  <div class="col-1-2">
-    <p> We are very busy, please join the queue.</p>
-      {{#each user in model}}
-        <p>
-          {{#linkTo users.show user}}{{user.name}}{{/linkTo}}
-           QPP  <!-- queue position placeholder -->
-        </p>
-      {{/each}}
-    </div>
+ 
+  <p> Add customer to queue.</p>
+  <p> Confirmation Message goes here </p>
+      <div class="col-1-4">
+        {{#each user in model}}
+          <p>
+            {{#linkTo users.show user}}{{user.name}}{{/linkTo}}
+             QPP  <!-- queue position placeholder -->
+          </p>
+        {{/each}}
+      </div>
+      <div class="col-1-4">
+        <p> Name form </p>
+        <p> Mobile form</p>
+        <p> Email form</p>
+        <p> Add button</p>
+      </div>
+      <div class="col-2-4">
+        <p> Average Wait time: 32 minutes </p>
+        <p> Slot Expires after: 10 minutes</p>
+        <p><IMG SRC="image.gif" ALT="graph placeholder" WIDTH=75% HEIGHT=300></p>
+      </div>
+     
+  
+   
   {{outlet}}
 </script>
 
