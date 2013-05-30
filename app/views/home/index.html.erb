@@ -1,16 +1,18 @@
 <script type="text/x-handlebars">
   <div class="wrapper"> 
 
-  <nav class="main_navigation" role="primary">
-    <%= "Home" %>
-    <%= "Login" %>
-    <%= "Register" %>
-  </nav>
+<header role="banner">
+    <nav class="main_navigation" role="primary">
+      <%= "Home" %>
+      <%= "Login" %>
+      <%= "Register" %>
+    </nav>
 
-  <div class="wrapper">
-    <h1>Noq</h1>
-      {{outlet}}
-  </div>
+    <div class="wrapper">
+      <h1>Noq</h1>
+        {{outlet}}
+    </div>
+</header>
 
 </script>
 
@@ -23,8 +25,9 @@
         {{#each user in model}}
           <p>
             {{#linkTo users.show user}}{{user.name}}{{/linkTo}}
-            {{user.id}}
-               [ {{#linkTo users.delete user}}delete{{/linkTo}} ]
+            {{user.q_position}}
+               {{#linkTo users.delete user}}&times;{{/linkTo}} 
+            &check;
           </p>
         {{/each}}
       </div>

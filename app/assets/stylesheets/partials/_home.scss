@@ -1,4 +1,9 @@
 .main_navigation {
-  position:absolute;
-  right:0px;
+  position: absolute;
+  right: 22px;
+  top: 22px;
 }
+
+header[role="banner"] {
+  padding-top: 20px;
+} 
