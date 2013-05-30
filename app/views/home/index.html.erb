@@ -1,18 +1,30 @@
 <script type="text/x-handlebars">
-  
-      <h1>Noq</h1>
+  <div class="wrapper"> 
+
+  <nav class="main_navigation" role="primary">
+    <%= "Home" %>
+    <%= "Login" %>
+    <%= "Register" %>
+  </nav>
+
+  <div class="wrapper">
+    <h1>Noq</h1>
       {{outlet}}
-   
+  </div>
+
 </script>
 
 <script type="text/x-handlebars" data-template-name="users">
-  <h2>Users</h2>
-    {{#each user in model}}
-      <p>
-        {{#linkTo users.show user}}{{user.name}}{{/linkTo}}
-          [ {{#linkTo users.edit user}}edit{{/linkTo}} ]
-     </p>
-    {{/each}}
+ 
+  <div class="col-1-2">
+    <p> We are very busy, please join the queue.</p>
+      {{#each user in model}}
+        <p>
+          {{#linkTo users.show user}}{{user.name}}{{/linkTo}}
+           QPP  <!-- queue position placeholder -->
+        </p>
+      {{/each}}
+    </div>
   {{outlet}}
 </script>
 
