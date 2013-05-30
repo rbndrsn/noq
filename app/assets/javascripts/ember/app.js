@@ -7,6 +7,7 @@ Noq.Router.map(function() {
     this.route('new');
     this.route('show', { path: ':user_id' });
     this.route('edit', { path: ':user_id/edit' });
+    this.route('delete', { path: ':user_id/delete' });
   });
 });
 
@@ -47,6 +48,12 @@ Noq.UsersShowRoute = Ember.Route.extend({
 });
 
 Noq.UsersEditRoute = Ember.Route.extend({
+  model: function(params) {
+    return Noq.User.find(params.user_id);
+  }
+});
+
+Noq.UsersDeleteRoute = Ember.Route.extend({
   model: function(params) {
     return Noq.User.find(params.user_id);
   }

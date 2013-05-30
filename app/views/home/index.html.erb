@@ -23,7 +23,8 @@
         {{#each user in model}}
           <p>
             {{#linkTo users.show user}}{{user.name}}{{/linkTo}}
-             QPP  <!-- queue position placeholder -->
+            {{user.id}}
+               [ {{#linkTo users.delete user}}delete{{/linkTo}} ]
           </p>
         {{/each}}
       </div>
@@ -54,4 +55,8 @@
 
 <script type="text/x-handlebars" data-template-name="users/edit">
   <p>Edit: {{name}}</p>
+</script>
+
+<script type="text/x-handlebars" data-template-name="users/delete">
+  <p>Delete: {{name}}</p>
 </script>
