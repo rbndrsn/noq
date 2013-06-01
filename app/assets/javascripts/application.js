@@ -17,3 +17,5 @@
 //= require ./vendor/ember-1.0.0-rc.4
 //= require ./vendor/ember-data
 //= require ./ember/app
+//= require ./ember/router
+

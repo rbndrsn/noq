@@ -17,39 +17,36 @@
 </script>
 
 <script type="text/x-handlebars" data-template-name="users">
- 
- 
   <p> Add customer to queue.</p>
   <p> Confirmation Message goes here </p>
-      <div class="col-1-4">
-        {{#each user in model}}
-          <p>
-            {{#linkTo users.show user}}{{user.name}}{{/linkTo}}
-            {{user.q_position}}
-               {{#linkTo users.delete user}}&times;{{/linkTo}} 
-            &check;
-          </p>
-        {{/each}}
-      </div>
-      <div class="col-1-4">
-        <p> Name form </p>
-        <p> Mobile form</p>
-        <p> Email form</p>
-        <p> Add button</p>
-      </div>
-      <div class="col-2-4">
-        <p> Average Wait time: 32 minutes </p>
-        <p> Slot Expires after: 10 minutes</p>
-        <p><IMG SRC="image.gif" ALT="graph placeholder" WIDTH=75% HEIGHT=300></p>
-      </div>
-     
-  
-   
+  <div class="col-1-4">
+    {{#each user in model}}
+      <p>
+        {{#linkTo users.show user}}{{user.name}}{{/linkTo}}
+        {{user.q_position}}
+        [ {{#linkTo users.edit user}}edit{{/linkTo}} ]
+           
+        &check;
+      </p>
+    {{/each}}
+  </div>
   {{outlet}}
+  <div class="col-2-4">
+    <p> Average Wait time: 32 minutes </p>
+    <p> Slot Expires after: 10 minutes</p>
+    <p><IMG SRC="image.gif" ALT="graph placeholder" WIDTH=75% HEIGHT=300></p>
+  </div>
 </script>
 
 <script type="text/x-handlebars" data-template-name="users/new">
   <p>Add a User</p>
+  <div class="col-1-4">
+    <p> {{view Ember.TextField valueBinding="name" placeholder="name"}} </p>
+    <p> {{view Ember.TextField valueBinding="mobile" placeholder="mobile"}}</p>
+    <p> {{view Ember.TextField valueBinding="email" placeholder="email"}}</p>
+    <button {{ action createUser }}>Save</button>
+  </div>
+    {{outlet}}
 </script>
 
 <script type="text/x-handlebars" data-template-name="users/show">
@@ -58,8 +55,4 @@
 
 <script type="text/x-handlebars" data-template-name="users/edit">
   <p>Edit: {{name}}</p>
-</script>
-
-<script type="text/x-handlebars" data-template-name="users/delete">
-  <p>Delete: {{name}}</p>
 </script>
