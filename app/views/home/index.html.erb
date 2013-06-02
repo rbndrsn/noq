@@ -23,10 +23,8 @@
     {{#each user in model}}
       <p>
         {{#linkTo users.show user}}{{user.name}}{{/linkTo}}
-        {{user.q_position}}
-        [ {{#linkTo users.edit user}}edit{{/linkTo}} ]
-           
-        &check;
+        {{user.createdAt}}
+        <button {{ action removeUser user }}>Remove</button>
       </p>
     {{/each}}
   </div>
@@ -53,6 +51,10 @@
   <p>Show: {{name}}</p>
 </script>
 
-<script type="text/x-handlebars" data-template-name="users/edit">
-  <p>Edit: {{name}}</p>
+<script type="text/x-handlebars" data-template-name="users/remove">
+  <p>remove: {{name}}</p>
 </script>
+
+
+
+

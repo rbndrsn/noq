@@ -31,6 +31,14 @@ Noq.UsersNewController = Ember.ObjectController.extend({
   }
 });
 
+Noq.UsersController = Ember.ObjectController.extend({
+    removeUser: function(user) {
+      user.deleteRecord(); 
+      this.get("store").commit();   
+    }
+});
+
+
 
 Noq.UsersShowRoute = Ember.Route.extend({
   model: function(params) {
