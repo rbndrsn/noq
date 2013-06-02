@@ -15,4 +15,5 @@
 //= require ./vendor/handlebars-1.0.0-rc.4
 //= require ./vendor/ember-1.0.0-rc.4
 //= require ./vendor/ember-data
+//= require ./vendor/localstorage_adapter
 //= require ./ember/app

@@ -1,6 +1,6 @@
 Noq.User = DS.Model.extend({
   name: DS.attr('string'),
-  q_position: DS.attr('integer')
+  q_position: DS.attr('number')
 });
 
 Noq.User.FIXTURES = [

@@ -1,4 +1,4 @@
 Noq.Store = DS.Store.extend({
-  revision: 13,
-  adapter: DS.FixtureAdapter
+   revision: 11,
+  adapter: DS.LSAdapter.create()
 });
