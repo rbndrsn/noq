@@ -24,6 +24,7 @@ Noq.UsersNewRoute = Ember.Route.extend({
 Noq.UsersNewController = Ember.ObjectController.extend({
   createUser: function() {
     user = this.get('model');
+    user.set('createdAt', new Date());
     user.save();
 
     this.get('target').transitionTo('users');
