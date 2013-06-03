@@ -7,7 +7,9 @@ Noq.Router.map(function() {
   });
 });
 
-
+// Noq.Router.reopen({
+//   location: 'history'
+// });
 
 Noq.UsersRoute = Ember.Route.extend({
   model: function() {
@@ -25,6 +27,7 @@ Noq.UsersNewController = Ember.ObjectController.extend({
   createUser: function() {
     user = this.get('model');
     user.set('createdAt', new Date());
+    user.set('timeInQueue', new Date());
     user.save();
 
     this.get('target').transitionTo('users');
@@ -50,4 +53,8 @@ Noq.UsersEditRoute = Ember.Route.extend({
   model: function(params) {
     return Noq.User.find(params.user_id);
   }
+});
+
+Ember.Handlebars.registerBoundHelper('humanDate', function(date) {
+  if (!Ember.isNone(date)) return moment(date).fromNow();
 });

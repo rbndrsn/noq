@@ -24,6 +24,7 @@
       <p>
         {{#linkTo users.show user}}{{user.name}}{{/linkTo}}
         {{user.createdAt}}
+        <div class="timeago">Added {{humanDate user.createdAt}}</div>
         <button {{ action removeUser user }}>Remove</button>
       </p>
     {{/each}}

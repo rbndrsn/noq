@@ -17,3 +17,4 @@
 //= require ./vendor/ember-data
 //= require ./vendor/localstorage_adapter
 //= require ./ember/app
+//= require ./vendor/moment
