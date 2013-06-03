@@ -1,7 +1,9 @@
 Noq.User = DS.Model.extend({
   name: DS.attr('string'),
   createdAt: DS.attr('date'),
-  timeInQueue: DS.attr('date')
+  timeInQueue: DS.attr('date'),
+  mobile: DS.attr('string'),
+  email: DS.attr('string')
 });
 
 Noq.User.FIXTURES = [
