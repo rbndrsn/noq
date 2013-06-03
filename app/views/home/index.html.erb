@@ -20,13 +20,14 @@
   <p> Add customer to queue.</p>
   <p> Confirmation Message goes here </p>
   <div class="col-1-4">
-    {{#each user in model}}
-      <p>
-        {{#linkTo users.show user}}{{user.name}}{{/linkTo}}
-        {{user.createdAt}}
+    <ol>
+      {{#each user in model}}
+      <li>
+        {{user.name}}
         <div class="timeago">Added {{humanDate user.createdAt}}</div>
         <button {{ action removeUser user }}>Remove</button>
-      </p>
+      </li>
+    </ol>
     {{/each}}
   </div>
   {{outlet}}
