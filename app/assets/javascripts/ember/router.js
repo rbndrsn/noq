@@ -23,26 +23,6 @@ Noq.UsersNewRoute = Ember.Route.extend({
   }
 });
 
-Noq.UsersNewController = Ember.ObjectController.extend({
-  createUser: function() {
-    user = this.get('model');
-    user.set('createdAt', new Date());
-    user.set('timeInQueue', new Date());
-    user.save();
-
-    this.get('target').transitionTo('users');
-  }
-});
-
-Noq.UsersController = Ember.ObjectController.extend({
-    removeUser: function(user) {
-      user.deleteRecord(); 
-      this.get("store").commit();   
-    }
-});
-
-
-
 Noq.UsersShowRoute = Ember.Route.extend({
   model: function(params) {
     return Noq.User.find(params.user_id);
@@ -60,3 +40,4 @@ Noq.UsersEditRoute = Ember.Route.extend({
 Ember.Handlebars.registerBoundHelper('humanDate', function(date) {
   if (!Ember.isNone(date)) return moment(date).fromNow();
 });
+
