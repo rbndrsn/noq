@@ -45,8 +45,8 @@
   <div class="col-1-3">
     <p>Add to the Queue</p>
     <p> {{view Noq.AlphaNumField valueBinding="name" placeholder="name"}} </p>
-    <p> {{view Ember.TextField valueBinding="mobile" placeholder="mobile"}}</p>
-    <p> {{view Ember.TextField valueBinding="email" placeholder="email"}}</p>
+    <p> {{view Noq.PhoneField valueBinding="mobile" placeholder="mobile"}}</p>
+    <p> {{view Noq.EmailField valueBinding="email" placeholder="email"}}</p>
     <button {{ action createUser }}>Add Customer to Queue</button>
   </div>
     {{outlet}}
