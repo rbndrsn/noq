@@ -9,15 +9,18 @@
     </nav>
 
     <div class="wrapper">
-      <h1>Noq</h1>
+      <h1>N&ouml;Q</h1>
         {{outlet}}
     </div>
 </header>
+
+<hr>
 
 </script>
 
 <script type="text/x-handlebars" data-template-name="users">
    <div class="col-1-3">
+   <p>Still waiting</p>
     <ol class="">
       {{#each user in model}}
       <li>
@@ -30,6 +33,7 @@
   </div>
   {{outlet}}
   <div class="col-1-3">
+    <p>Stats!</p>
     <p> Average Wait time: 32 minutes </p>
     <p> Slot Expires after: 10 minutes</p>
     <p><IMG SRC="image.gif" ALT="graph placeholder" WIDTH=75% HEIGHT=300></p>
@@ -38,6 +42,7 @@
 
 <script type="text/x-handlebars" data-template-name="users/new">
   <div class="col-1-3">
+    <p>Add to the Queue</p>
     <p> {{view Ember.TextField valueBinding="name" placeholder="name"}} </p>
     <p> {{view Ember.TextField valueBinding="mobile" placeholder="mobile"}}</p>
     <p> {{view Ember.TextField valueBinding="email" placeholder="email"}}</p>
@@ -53,6 +58,8 @@
 <script type="text/x-handlebars" data-template-name="users/remove">
   <p>remove: {{name}}</p>
 </script>
+
+
 
 
 
