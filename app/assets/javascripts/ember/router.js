@@ -7,10 +7,6 @@ Noq.Router.map(function() {
   });
 });
 
-// Noq.Router.reopen({
-//   location: 'history'
-// });
-
 Noq.UsersRoute = Ember.Route.extend({
   model: function() {
     return Noq.User.find();
