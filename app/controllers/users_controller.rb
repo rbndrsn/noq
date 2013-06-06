@@ -1,13 +1,7 @@
-class HomeController < ApplicationController
-  def index
-     
-  end
+class UsersController < ApplicationController
+  
 
-  def signup
-    @user = User.new
-  end
-
-  def create_user
+  def create
     @user = User.new params[:user]
     
     if @user.save
@@ -16,6 +10,6 @@ class HomeController < ApplicationController
       redirect_to root_url
     end
   end
-  
+
 end
 

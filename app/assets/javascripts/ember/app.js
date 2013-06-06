@@ -3,12 +3,14 @@
 //= require ./models/store
 //= require ./models/user
 //= require ./controllers/usersController
+//= require ./views/user.js
+
 
 Noq = Ember.Application.create({
   LOG_TRANSITIONS: true,
   NameField: Ember.TextField.extend({
     isValid: function() {
-        return /^([A-Za-z0-9]+ ?)*$/i.test(this.get('value'));
+        return /^([A-Z\-\. ]+)$/i.test(this.get('value'));
     }.property('value'),
     classNameBindings: 'isValid:valid:invalid'
   }),
@@ -26,3 +28,24 @@ Noq = Ember.Application.create({
   }),
 });
 
+Noq.SIMPERIUM_APP_ID = 'measures-star-2a4';
+Noq.SIMPERIUM_TOKEN = 'a87429cb5f0c4b1795a90d69a3e6d680';
+
+// // Initializers
+
+Noq.initializer({
+  name: 'simperium',
+  initialize: function() {
+    console.log("simperium loaded?");
+    Noq.simperium = new Simperium(Noq.SIMPERIUM_APP_ID, {
+      token : Noq.SIMPERIUM_TOKEN
+    });
+  }
+});
+
+Noq.initializer({
+  name: 'stores',
+  initialize: function() {
+    Noq.User.store = Noq.UserStore.create();
+  }
+});

@@ -1,0 +1,12 @@
+<div class="signup-form">
+  <h2>Sign up</h2>
+    <%= form_for @user do |f| %>
+      <p><%= f.text_field :first_name, :placeholder => 'First name' %></p>
+      <p><%= f.text_field :last_name, :placeholder => 'Last name' %></p>
+      <p><%= f.text_field :email_address, :placeholder => 'Email address' %></p>
+      <p><%= f.password_field :password, :placeholder => 'Password' %></p>
+      <p><%= f.password_field :password_confirmation, :placeholder => 'Confirm password' %></p>
+      <p><%= f.submit "Sign up" %></p>
+    <% end %>
+</div>
+  

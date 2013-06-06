@@ -1,4 +1,4 @@
-Noq.UsersController = Ember.Controller.extend({
+Noq.UsersController = Ember.ArrayController.extend({
   init: function() {
     this._super();
     this.updateCurrentTime();

@@ -9,6 +9,9 @@ Noq.Router.map(function() {
 
 Noq.UsersRoute = Ember.Route.extend({
   model: function() {
+    // return Noq.User.filter(function(user) {
+    //   if (!user.get('isNew')) { return true }
+    // }).toArray()
     return Noq.User.find();
   }
 });
