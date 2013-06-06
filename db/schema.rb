@@ -14,7 +14,6 @@
 ActiveRecord::Schema.define(:version => 20130606152531) do
 
   create_table "users", :force => true do |t|
-    t.string   "name"
     t.string   "email_address"
     t.string   "first_name"
     t.string   "last_name"

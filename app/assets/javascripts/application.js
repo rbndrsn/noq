@@ -12,12 +12,17 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require ./vendor/noty/jquery.noty
+//= require ./vendor/noty/themes/default
+//= require ./vendor/noty/layouts/top.js
+//= require ./vendor/noty/themes/default
 //= require ./vendor/handlebars-1.0.0-rc.4
 //= require ./vendor/ember-1.0.0-rc.4
 //= require ./vendor/ember-data
 //= require ./vendor/localstorage_adapter
 //= require ./vendor/moment
 //= require ./ember/app
+//= require home
 
 
 
