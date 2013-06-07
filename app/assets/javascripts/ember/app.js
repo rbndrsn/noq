@@ -29,8 +29,10 @@ Noq = Ember.Application.create({
 });
 
 
+Noq.SIMPERIUM_APP_ID = 'measures-star-2a4';
+Noq.SIMPERIUM_TOKEN = '0140d03df72843718c688ac19ec2fdc4';
 
-// // // Initializers
+// Initializers
 
 Noq.initializer({
   name: 'simperium',
