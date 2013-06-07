@@ -1,107 +1,92 @@
-Noq.Store = DS.Store.extend({
-  revision: 13,
-  adapter: DS.LSAdapter 
+// Noq.Store = DS.Store.extend({
+//   revision: 13,
+//   adapter: DS.LSAdapter 
+// });
+
+
+
+// Models
+
+Noq.Model = Ember.Object.extend({
+  fields: ['id', 'name', 'createdAt', 'timeInQueue', 'mobile', 'email'],
+  forWire: function() {
+    return this.getProperties(this.get('fields'));
+  },
+
+  commit: function() {
+    this.get('store').commit(this.get('id'));
+  }
 });
 
+// Stores
 
-// // Models
+Noq.Store = Ember.Object.extend({
+  init: function() {
+    this._super();
+    this.set('idMap', {});
+    this.set('hydratedObjects', []);
+    this._createBucket();
+  },
 
-// Noq.Model = Ember.Object.extend({
-//   fields: ['id', 'name', 'createdAt', 'timeInQueue', 'mobile', 'email'],
-//   forWire: function() {
-//     return this.getProperties(this.get('fields'));
-//   },
+  all: function() {
+    return this.get('hydratedObjects');
+  },
 
-//   commit: function() {
-//     this.get('store').commit(this.get('id'));
-//   }
-// });
+  find: function(id) {
+    return this._objectFor(id);
+  },
 
-// Noq.User = Noq.Model.extend({
-//   fields: ['id', 'name', 'createdAt', 'timeInQueue', 'mobile', 'email']
-// });
+  commit: function(id) {
+    var object = this.find(id);
+    if (!this.get('hydratedObjects').contains(object)) {
+      this.get('hydratedObjects').addObject(object);
+    }
+    this.get('bucket').update(id);
+  },
 
-// Noq.User.find = function(id) {
-//   if (Ember.isNone(id)) {
-//     return Noq.User.store.all();
-//   } else {
-//     return Noq.User.store.find(id);
-//   }
-// }
+  createRecord: function(properties) {
+    var id = moment().valueOf().toString();
+    properties.id = id;
+    var object = this.find(id);
+    object.setProperties(properties);
+    return object;
+  },
 
-// Noq.User.createRecord = function(properties) {
-//   return Noq.User.store.createRecord(properties);
-// }
+  _createBucket: function() {
+      var bucket = Noq.simperium.bucket(this.get('name')),
+          self = this;
 
-// // Stores
+      bucket.on('notify', function(id, properties) {
+        self._hydrateObject(id, properties);
+      });
 
-// Noq.Store = Ember.Object.extend({
-//   init: function() {
-//     this._super();
-//     this.set('idMap', {});
-//     this.set('hydratedObjects', []);
-//     // this._createBucket();
-//   },
+      bucket.on('local', function(id) {
+        var object = self.find(id);
+        return object.forWire();
+      });
 
-//   all: function() {
-//     return this.get('hydratedObjects');
-//   },
+      bucket.start();
 
-//   find: function(id) {
-//     return this._objectFor(id);
-//   },
+      this.set('bucket', bucket);
+  },
 
-//   commit: function(id) {
-//     var object = this.find(id);
-//     if (!this.get('hydratedObjects').contains(object)) {
-//       this.get('hydratedObjects').addObject(object);
-//     }
-//     this.get('bucket').update(id);
-//   },
+  _objectFor: function(id) {
+    var idMap = this.get('idMap');
 
-//   createRecord: function(properties) {
-//     var id = moment().valueOf().toString();
-//     properties.id = id;
-//     var object = this.find(id);
-//     object.setProperties(properties);
-//     return object;
-//   },
+    return idMap[id] = idMap[id] ||
+                       this.get('model').create({ id: id, store: this });
+  },
 
-//   _createBucket: function() {
-//     var bucket = Noq.simperium.bucket(this.get('name')),
-//         self = this;
+  _hydrateObject: function(id, properties) {
+    var object = this._objectFor(id);
+    object.setProperties(this.deserialize(properties));
+    this.get('hydratedObjects').addObject(object);
+  },
 
-//     bucket.on('notify', function(id, properties) {
-//       self._hydrateObject(id, properties);
-//     });
-
-//     bucket.on('local', function(id) {
-//       var object = self.find(id);
-//       return object.forWire();
-//     });
-
-//     bucket.start();
-
-//     this.set('bucket', bucket);
-//   },
-
-//   _objectFor: function(id) {
-//     var idMap = this.get('idMap');
-
-//     return idMap[id] = idMap[id] ||
-//                        this.get('model').create({ id: id, store: this });
-//   },
-
-//   _hydrateObject: function(id, properties) {
-//     var object = this._objectFor(id);
-//     object.setProperties(this.deserialize(properties));
-//     this.get('hydratedObjects').addObject(object);
-//   },
-
-//   deserialize: function(object, properties) {
-//     return {};
-//   }
-// });
+  deserialize: function(object, properties) {
+    return {};
+  }
+});
 
 
 

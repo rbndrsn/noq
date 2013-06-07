@@ -20,7 +20,7 @@ Noq.UsersNewController = Ember.ObjectController.extend({
     user = this.get('model');
     user.set('createdAt', new Date());
     user.set('timeInQueue', new Date());
-    user.save();
+    user.commit();
 
     this.get('target').transitionTo('users/new');
   }
@@ -32,3 +32,5 @@ Noq.UsersController = Ember.ObjectController.extend({
       this.get("store").commit();   
     }
 });
+
+//

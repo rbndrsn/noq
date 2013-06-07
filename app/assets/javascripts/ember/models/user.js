@@ -1,6 +1,18 @@
-Noq.User = DS.Model.extend({
+Noq.User = Noq.Model.extend({
   fields: ['id', 'name', 'createdAt', 'timeInQueue', 'mobile', 'email']
 });
+
+Noq.User.find = function(id) {
+  if (Ember.isNone(id)) {
+    return Noq.User.store.all();
+  } else {
+    return Noq.User.store.find(id);
+  }
+}
+
+Noq.User.createRecord = function(properties) {
+  return Noq.User.store.createRecord(properties);
+}
 
 
 Noq.UserStore = Noq.Store.extend({

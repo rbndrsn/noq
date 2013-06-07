@@ -1,6 +1,8 @@
 class HomeController < ApplicationController
   def index
-     
+    gon.current_user = 7 #current_user
+
+    
   end
 
   def signup

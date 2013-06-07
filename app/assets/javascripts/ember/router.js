@@ -18,7 +18,7 @@ Noq.UsersRoute = Ember.Route.extend({
 
 Noq.UsersNewRoute = Ember.Route.extend({
   model: function() {
-    return Noq.User.createRecord();
+    return Noq.User.createRecord({});
   }
 });
 
