@@ -3,8 +3,6 @@
 //   adapter: DS.LSAdapter 
 // });
 
-
-
 // Models
 
 Noq.Model = Ember.Object.extend({
@@ -53,7 +51,7 @@ Noq.Store = Ember.Object.extend({
   },
 
   _createBucket: function() {
-      var bucket = Noq.simperium.bucket(this.get('name')),
+      var bucket = window.simperium.bucket("users"),
           self = this;
 
       bucket.on('notify', function(id, properties) {

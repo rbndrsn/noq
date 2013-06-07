@@ -28,12 +28,9 @@ Noq = Ember.Application.create({
   }),
 });
 
-Noq.SIMPERIUM_APP_ID = 'measures-star-2a4';
-Noq.SIMPERIUM_TOKEN = 'a87429cb5f0c4b1795a90d69a3e6d680';
 
 
-
-// // Initializers
+// // // Initializers
 
 Noq.initializer({
   name: 'simperium',
@@ -47,25 +44,8 @@ Noq.initializer({
 
 Noq.initializer({
   name: 'stores',
-  after: 'simperium',
   initialize: function() {
     Ember.debug("stores called");
     Noq.User.store = Noq.UserStore.create();
   }
 });
-
-
-// App.initializer({
-//   name: "preload",
-//   initialize: function() {
-//     App.deferReadiness();
-//     Ember.$.getJSON("/preload.json", function(json) {
-//       App.handlePreloadData(json);
-//       App.advanceReadiness();
-//     });
-//   }
-// });
-
-// App.ready = function() {
-//   Ember.debug(App.hasPreloadedData()); // prints true;
-// }

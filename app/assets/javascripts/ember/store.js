@@ -1,8 +1,8 @@
 // Noq.Store = DS.Store.extend({
 //   revision: 13,
-//   adapter: DS.FixtureAdapter
+//   adapter: DS.LSAdapter 
 // });
-
+// not here!
 
 
 // Noq.SIMPERIUM_APP_ID = 'measures-star-2a4';
