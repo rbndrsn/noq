@@ -6,7 +6,7 @@
 // Models
 
 Noq.Model = Ember.Object.extend({
-  fields: ['id', 'name', 'createdAt', 'timeInQueue', 'mobile', 'email'],
+  fields: [],
   forWire: function() {
     return this.getProperties(this.get('fields'));
   },
