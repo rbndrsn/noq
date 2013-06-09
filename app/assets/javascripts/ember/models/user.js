@@ -1,5 +1,5 @@
 Noq.User = Noq.Model.extend({
-  fields: ['id', 'name', 'createdAt', 'timeInQueue', 'mobile', 'email']
+  fields: ['id', 'name', 'joinedQueue', 'timeInQueue', 'mobile', 'email']
 });
 
 Noq.User.find = function(id) {
@@ -14,14 +14,14 @@ Noq.User.createRecord = function(properties) {
   return Noq.User.store.createRecord(properties);
 }
 
-
 Noq.UserStore = Noq.Store.extend({
   name: 'users',
   model: Noq.User,
   deserialize: function(properties) {
+    console.log("properties: ", properties);
     return {
       name: properties.name,
-      createdAt: properties.createdAt,
+      joinedQueue: properties.joinedQueue,
       timeInQueue: properties.timeInQueue,
       mobile: properties.mobile,
       email: properties.email
@@ -29,25 +29,3 @@ Noq.UserStore = Noq.Store.extend({
   }
 });
 
-// Noq.User.FIXTURES = [
-//   {
-//     id: 1,
-//     name: "Joe",
-//     q_position: 2
-//   },
-//   {
-//     id: 2,
-//     name: "Betty",
-//     q_position: 3
-//   },
-//   {
-//     id: 3,
-//     name: "Marge",
-//     q_position: 1
-//   },
-//   {
-//     id: 4,
-//     name: "Barney",
-//     q_position: 4
-//   }
-// ];

@@ -3,63 +3,64 @@
 <head></head>
 <meta charset="utf-8">
 <title>Noq</title>
-<body>
+  <body>
+    <div class="wrapper">
 
-<script type="text/x-handlebars">
-  <div class="wrapper"> 
-  {{outlet}}
-  </div>
-  <div id="footer"></div>
-</script>
+      <script type="text/x-handlebars">
+        <div class="wrapper"> 
+        {{outlet}}
+        </div>
+        <div id="footer"></div>
+      </script>
 
-<script type="text/x-handlebars" data-template-name="users">
-   <div class="col-1-3">
-   {{action load}}
-   <p>Still waiting</p>
-    <ol>
-      {{#each user in model}}
-      <li>
-        {{user.name}}
-        <div class="timeago">Added {{action user.createdAt user}}</div>
-        <button {{ action removeUser user }}>Remove</button>
-      </li>
-      {{/each}}
-    </ol>  
-  </div>
-  {{outlet}}
-  <div class="col-1-3">
-    <p>Stats!</p>
-    <p> Average Wait time: 32 minutes </p>
-    <p> Slot Expires after: 10 minutes</p>
-    <p><IMG SRC="image.gif" ALT="graph placeholder" WIDTH=75% HEIGHT=300></p>
-  </div>
-</script>
+      <script type="text/x-handlebars" data-template-name="users">
+         <div class="col-1-3">
+         {{action load}}
+         <p>Still waiting</p>
+          <ol>
+            {{#each user in model}}
+            <li>
+              {{user.name}}: Added {{fromNow valueBinding="createdAt"}}        
+              <button {{ action removeUser user }}>Remove</button>
+            </li>
+            {{/each}}
+          </ol>  
+        </div>
+        {{outlet}}
+        <div class="col-1-3">
+          <p>Stats!</p>
+          <p> Average Wait time: 32 minutes </p>
+          <p> Slot Expires after: 10 minutes</p>
+          <p><IMG SRC="image.gif" ALT="graph placeholder" WIDTH=75% HEIGHT=300></p>
+        </div>
+      </script>
 
-<script type="text/x-handlebars" data-template-name="users/new">
-  <div class="col-1-3">
-    <p>Add to the Queue</p>
-    <p> {{view Noq.NameField valueBinding="name" placeholder="name"}} </p>
-    <p> {{view Noq.MobileField valueBinding="mobile" placeholder="mobile"}}</p>
-    <p> {{view Noq.EmailField valueBinding="email" placeholder="email"}}</p>
-    <button {{ action createUser }}>Add Customer to Queue</button>
-  </div>
-  {{outlet}}
-</script>
+      <script type="text/x-handlebars" data-template-name="users/new">
+        <div class="col-1-3">
+          <p>Add to the Queue</p>
+          <p> {{view Noq.NameField valueBinding="name" placeholder="name"}} </p>
+          <p> {{view Noq.MobileField valueBinding="mobile" placeholder="mobile"}}</p>
+          <p> {{view Noq.EmailField valueBinding="email" placeholder="email"}}</p>
+          <button {{ action createUser }}>Add Customer to Queue</button>
+        </div>
+        {{outlet}}
+      </script>
 
-<script type="text/x-handlebars" data-template-name="users/show">
-  <p>Show: {{name}}</p>
-</script>
+      <script type="text/x-handlebars" data-template-name="users/show">
+        <p>Show: {{name}}</p>
+      </script>
 
-<script type="text/x-handlebars" data-template-name="users/remove">
-  <p>remove: {{name}}</p>
-</script>
+      <script type="text/x-handlebars" data-template-name="users/remove">
+        <p>remove: {{name}}</p>
+      </script>
 
-<script type="text/x-handlebars">
-  <p>Created {{fromNow valueBinding="createdAt"}}</p>
-  {{outlet}}
-</script>
+      <script type="text/x-handlebars">
+        <p>Created {{fromNow valueBinding="createdAt"}}</p>
+        {{outlet}}
+      </script>
 
-</body>
+    </div>
+  </body>
 </html>
 
 

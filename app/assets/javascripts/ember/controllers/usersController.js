@@ -18,7 +18,7 @@ Noq.UsersController = Ember.ArrayController.extend({
 Noq.UsersNewController = Ember.ObjectController.extend({
   createUser: function() {
     user = this.get('model');
-    user.set('createdAt', new Date());
+    user.set('joinedQueue', new Date());
     user.set('timeInQueue', new Date());
     user.commit();
 
@@ -27,10 +27,13 @@ Noq.UsersNewController = Ember.ObjectController.extend({
 });
 
 Noq.UsersController = Ember.ObjectController.extend({
-    removeUser: function(user) {
-      user.deleteRecord(); 
-      this.get("store").commit();   
-    }
+  sortProperties: [ 'joinedQueue' ],
+  sortAscending: true,
+  removeUser: function(user) {
+    console.log("calling deleteRecord on UsersController");
+    User.deleteRecord(user);
+    Noq.UserStore.commit();
+  }
 });
 
 Noq.ApplicationController = Ember.Controller.extend({

@@ -45,11 +45,10 @@ Noq.FromNowView = Ember.View.extend({
 
   tick: function() {
     var nextTick = Ember.run.later(this, function() {
-      console.log('tick');
       this.notifyPropertyChange('value');
       this.tick();
       //Update interval
-    }, 300000);
+    }, 1000);
     this.set('nextTick', nextTick);
   },
 
@@ -59,9 +58,6 @@ Noq.FromNowView = Ember.View.extend({
   }
 
 });
-
-
-
 
 // Store Initializer
 

@@ -1,8 +1,3 @@
-// Noq.Store = DS.Store.extend({
-//   revision: 13,
-//   adapter: DS.LSAdapter 
-// });
-
 // Models
 
 Noq.Model = Ember.Object.extend({
