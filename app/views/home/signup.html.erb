@@ -1,12 +1,15 @@
-<div class="form">
-  <h2>Create Account</h2>
-    <%= form_for @user do |f| %>
-      <p><%= f.text_field :first_name, :placeholder => 'First name' %></p>
-      <p><%= f.text_field :last_name, :placeholder => 'Last name' %></p>
-      <p><%= f.text_field :email_address, :placeholder => 'Email address' %></p>
-      <p><%= f.password_field :password, :placeholder => 'Password' %></p>
-      <p><%= f.password_field :password_confirmation, :placeholder => 'Confirm password' %></p>
-      <p><%= f.submit "Sign up", :class => 'button' %></p>
-    <% end %>
+<div class="wrapper">
+  <div class="form">
+    <h2>Create an Account</h2>
+      <%= form_for @user do |f| %>
+        <p><%= f.text_field :first_name, :placeholder => 'First name' %></p>
+        <p><%= f.text_field :last_name, :placeholder => 'Last name' %></p>
+        <p><%= f.text_field :email_address, :placeholder => 'Email address' %></p>
+        <p><%= f.password_field :password, :placeholder => 'Password' %></p>
+        <p><%= f.password_field :password_confirmation, :placeholder => 'Confirm password' %></p>
+        <p><%= f.submit "Sign up", :class => 'button' %></p>
+      <% end %>
+  </div>
+  <footer></footer>
 </div>
   
