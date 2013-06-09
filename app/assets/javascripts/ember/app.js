@@ -28,27 +28,46 @@ Noq = Ember.Application.create({
   }),
 });
 
+// ember time view
 
-// Noq.SIMPERIUM_APP_ID = 'measures-star-2a4';
-// Noq.SIMPERIUM_TOKEN = '0140d03df72843718c688ac19ec2fdc4';
+Noq.FromNowView = Ember.View.extend({
+  tagName: 'time',
+
+  template: Ember.Handlebars.compile('{{view.output}}'),
+
+  output: function() {
+    return moment(this.get('value')).fromNow();
+  }.property('value'),
+
+  didInsertElement: function() {
+    this.tick();
+  },
+
+  tick: function() {
+    var nextTick = Ember.run.later(this, function() {
+      console.log('tick');
+      this.notifyPropertyChange('value');
+      this.tick();
+      //Update interval
+    }, 300000);
+    this.set('nextTick', nextTick);
+  },
+
+  willDestroyElement: function() {
+    var nextTick = this.get('nextTick');
+    Ember.run.cancel(nextTick);
+  }
+
+});
 
 
-// Initializers
 
-// Noq.initializer({
-//   name: 'simperium',
-//   initialize: function() {
-//     Ember.debug("simperium called");
-//     Noq.simperium = new Simperium(Noq.SIMPERIUM_APP_ID, {
-//       token : Noq.SIMPERIUM_TOKEN
-//     });
-//   }
-// });
+
+// Store Initializer
 
 Noq.initializer({
   name: 'stores',
   initialize: function() {
-    Ember.debug("stores called");
     Noq.User.store = Noq.UserStore.create();
   }
 });

@@ -40,3 +40,7 @@ Ember.Handlebars.registerBoundHelper('humanDate', function(date) {
   if (!Ember.isNone(date)) return moment(date).fromNow();
 });
 
+<!-- Ember time helper -->
+
+Ember.Handlebars.helper('fromNow', Noq.FromNowView);
+

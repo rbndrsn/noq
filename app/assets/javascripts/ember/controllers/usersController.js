@@ -33,3 +33,6 @@ Noq.UsersController = Ember.ObjectController.extend({
     }
 });
 
+Noq.ApplicationController = Ember.Controller.extend({
+  createdAt: new Date()
+});

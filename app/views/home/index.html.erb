@@ -8,10 +8,8 @@
 <script type="text/x-handlebars">
   <div class="wrapper"> 
   {{outlet}}
-
-
-    <footer class="wrapper"></footer>
-
+  </div>
+  <div id="footer"></div>
 </script>
 
 <script type="text/x-handlebars" data-template-name="users">
@@ -54,6 +52,11 @@
 
 <script type="text/x-handlebars" data-template-name="users/remove">
   <p>remove: {{name}}</p>
+</script>
+
+<script type="text/x-handlebars">
+  <p>Created {{fromNow valueBinding="createdAt"}}</p>
+  {{outlet}}
 </script>
 
 </body>
