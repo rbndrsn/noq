@@ -26,6 +26,8 @@ Noq.Store = Ember.Object.extend({
     this._createBucket();
   },
 
+  model: Noq.Model,
+
   all: function() {
     return this.get('hydratedObjects');
   },

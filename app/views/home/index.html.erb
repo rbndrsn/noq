@@ -7,10 +7,10 @@
 
 <script type="text/x-handlebars">
   <div class="wrapper"> 
+  {{outlet}}
 
 
-
-    <footer class="wrapper">I &hearts; Ember</footer>
+    <footer class="wrapper"></footer>
 
 </script>
 
@@ -25,8 +25,8 @@
         <div class="timeago">Added {{action user.createdAt user}}</div>
         <button {{ action removeUser user }}>Remove</button>
       </li>
-    </ol>
-    {{/each}}
+      {{/each}}
+    </ol>  
   </div>
   {{outlet}}
   <div class="col-1-3">
@@ -45,7 +45,7 @@
     <p> {{view Noq.EmailField valueBinding="email" placeholder="email"}}</p>
     <button {{ action createUser }}>Add Customer to Queue</button>
   </div>
-    {{outlet}}
+  {{outlet}}
 </script>
 
 <script type="text/x-handlebars" data-template-name="users/show">
