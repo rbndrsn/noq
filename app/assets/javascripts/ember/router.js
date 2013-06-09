@@ -7,9 +7,18 @@ Noq.Router.map(function() {
   });
 });
 
+Noq.IndexRoute = Ember.Route.extend({
+  redirect: function() {
+    this.transitionTo('users.new');
+  }
+
+
+});
+
+
 Noq.UsersRoute = Ember.Route.extend({
   model: function() {
-    return Noq.User.find(); 
+    return Noq.User.find();
   }
 });
 
