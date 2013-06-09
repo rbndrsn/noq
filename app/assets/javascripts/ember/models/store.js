@@ -51,21 +51,21 @@ Noq.Store = Ember.Object.extend({
   },
 
   _createBucket: function() {
-      var bucket = window.simperium.bucket("users"),
-          self = this;
+    var bucket = window.simperium.bucket("users"),
+        self = this;
 
-      bucket.on('notify', function(id, properties) {
-        self._hydrateObject(id, properties);
-      });
+    bucket.on('notify', function(id, properties) {
+      self._hydrateObject(id, properties);
+    });
 
-      bucket.on('local', function(id) {
-        var object = self.find(id);
-        return object.forWire();
-      });
+    bucket.on('local', function(id) {
+      var object = self.find(id);
+      return object.forWire();
+    });
 
-      bucket.start();
+    bucket.start();
 
-      this.set('bucket', bucket);
+    this.set('bucket', bucket);
   },
 
   _objectFor: function(id) {
