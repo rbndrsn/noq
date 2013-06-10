@@ -9,6 +9,7 @@ class HomeController < ApplicationController
   end
 
   def signup
+    @load_ember = false
     @user = User.new
   end
 

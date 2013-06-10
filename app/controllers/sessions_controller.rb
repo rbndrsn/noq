@@ -1,7 +1,7 @@
 class SessionsController < ApplicationController
   
   def new
-
+    @load_ember = false
   end
 
   def create
