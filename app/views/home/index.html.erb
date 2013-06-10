@@ -4,8 +4,7 @@
 
 <script type="text/x-handlebars" data-template-name="users">
    <div class="col-1-2 wrapper">
-   {{action load}}
-   <p>Still waiting</p>
+   <p>Still waiting:</p>
     <ol>
       {{#each user in model}}
       <li>
@@ -20,7 +19,7 @@
 
 <script type="text/x-handlebars" data-template-name="users/new">
   <div class="col-1-2">
-    <p>Add to the Queue</p>
+    <p>Add to the Queue:</p>
     <p> {{view Noq.NameField valueBinding="name" placeholder="name"}} </p>
     <p> {{view Noq.MobileField valueBinding="mobile" placeholder="mobile"}}</p>
     <p> {{view Noq.EmailField valueBinding="email" placeholder="email"}}</p>
