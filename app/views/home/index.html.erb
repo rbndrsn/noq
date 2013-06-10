@@ -9,7 +9,7 @@
       {{#each user in model}}
       <li>
         {{user.name}}: Added {{fromNow valueBinding="createdAt"}}        
-        <button {{ action removeUser user }}>Remove</button>
+        <a class="remove-underline-link" href="#" {{action removeUser user}}>x</a>
       </li>
       {{/each}}
     </ol>  
@@ -23,7 +23,7 @@
     <p> {{view Noq.NameField valueBinding="name" placeholder="name"}} </p>
     <p> {{view Noq.MobileField valueBinding="mobile" placeholder="mobile"}}</p>
     <p> {{view Noq.EmailField valueBinding="email" placeholder="email"}}</p>
-    <button {{ action createUser }}>Add Customer to Queue</button>
+    <button class="button"{{ action createUser }}>Enqueue</button>
   </div>
   {{outlet}}
 </script>

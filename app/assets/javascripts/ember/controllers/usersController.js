@@ -30,7 +30,6 @@ Noq.UsersController = Ember.ObjectController.extend({
   sortProperties: [ 'joinedQueue' ],
   sortAscending: false,
   removeUser: function(user) {
-    console.log("calling deleteRecord on UsersController");
     user.destroy();
     user.commit();
   }

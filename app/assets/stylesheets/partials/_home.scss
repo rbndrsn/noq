@@ -9,7 +9,7 @@ header[role="banner"] {
 } 
 
 input.invalid {
-  border: 1px solid red;
+  border: 1px solid $brand-omnicron;
 }
 
 input.valid {
@@ -21,11 +21,10 @@ input:focus {
 
 .form {
   padding: 10px;
+  border-radius: 10px;
 }
 
-.button {
-  border-radius: 5px;
-}
+
 
 #noq {
   clear: both;
@@ -33,4 +32,41 @@ input:focus {
 
 footer {
   clear: both;
+}
+
+.remove-underline-link {
+  text-decoration: none; 
+}
+
+/* flat queue button */
+
+.button{
+-webkit-backface-visibility: hidden;
+-webkit-background-clip: border-box;
+-webkit-background-origin: padding-box;
+-webkit-background-size: auto;
+-webkit-box-shadow: none;
+-webkit-transition-delay: 0s;
+-webkit-transition-duration: 0.25s;
+-webkit-transition-property: all;
+-webkit-transition-timing-function: ease;
+background-color: $brand-beta;
+border-radius: 5px;
+border-bottom-width: 0px;
+border-image-source: none;
+border-style: none;
+border-width: 0px;
+color: rgb(255, 255, 255);
+display: block;
+line-height: 20px;
+margin-bottom: 0px;
+padding: 5px 10px 5px 10px;
+text-align: center;
+text-decoration: none;
+text-shadow: none;
+transition-delay: 0s;
+transition-duration: 0.25s;
+transition-property: all;
+transition-timing-function: ease;
+vertical-align: middle;
 }
