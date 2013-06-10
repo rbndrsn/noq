@@ -1,39 +1,41 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Noq</title>
-  <%= include_gon %>
-  <%= stylesheet_link_tag "application", :media => "all" %>
-  <%= csrf_meta_tags %>
-</head>
-<header role="banner" class="wrapper">
-    <nav class="main_navigation" role="primary">
-      <%= link_to "Home", root_path %>
-      <%= link_to "Login", login_path %>
-      <%= link_to "Signup", signup_path %>
-      <%= link_to "Logout", logout_path %>
-    </nav>
-
-    <div>
-      <h1>N&ouml;Q</h1>
+  <head>
+    <title>Noq</title>
+    <%= include_gon %>
+    <%= stylesheet_link_tag "application", :media => "all" %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <div class="wrapper">
+      <header role="banner">
+        <nav class="main_navigation" role="primary">
+          <%= link_to "Home", root_path %>
+          <%= link_to "Login", login_path %>
+          <%= link_to "Signup", signup_path %>
+          <%= link_to "Logout", logout_path %>
+        </nav>
+        <div>
+          <h1>N&ouml;Q</h1>
+        </div>
+      </header>
+      <div id="noq" class="content">
+        <%= yield %>
       </div>
-    
-    </header>
-
-<body class="wrapper">
-
-  <%= yield %>
-
-  <script src="https://js.simperium.com/v0.1/"></script>
-  <script type="text/javascript">
-    window.SIMPERIUM_APP_ID = 'measures-star-2a4';
-    window.SIMPERIUM_TOKEN = '0140d03df72843718c688ac19ec2fdc4';
-
-    window.simperium = new Simperium(window.SIMPERIUM_APP_ID, {
-      token : window.SIMPERIUM_TOKEN
-    });
-  </script>
-  <%= javascript_include_tag "application" %>
-</body>
-<footer class="wrapper"></footer>
+      <footer>
+        <p>&copy; 2013 Rob Anderson</p>
+      </footer> 
+    </div>
+    <script src="https://js.simperium.com/v0.1/"></script>
+    <script type="text/javascript">
+      window.SIMPERIUM_APP_ID = 'measures-star-2a4';
+      window.SIMPERIUM_TOKEN = '0140d03df72843718c688ac19ec2fdc4';
+      window.simperium = new Simperium(window.SIMPERIUM_APP_ID, {
+        token : window.SIMPERIUM_TOKEN
+      });
+    </script>
+    <%= javascript_include_tag "application" %>
+  </body>
 </html>
+
+  

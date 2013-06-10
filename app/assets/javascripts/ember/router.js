@@ -40,13 +40,12 @@ Noq.UsersEditRoute = Ember.Route.extend({
   }
 });
 
-<!-- Moment.js helper -->
+/* Moment.js helper */
 
 Ember.Handlebars.registerBoundHelper('humanDate', function(date) {
   if (!Ember.isNone(date)) return moment(date).fromNow();
 });
 
-<!-- Ember time helper -->
-
+/* Ember time helper */ 
 Ember.Handlebars.helper('fromNow', Noq.FromNowView);
 

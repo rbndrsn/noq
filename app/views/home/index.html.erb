@@ -1,64 +1,43 @@
-<!DOCTYPE html>
-<html>
-<head></head>
-<meta charset="utf-8">
-<title>Noq</title>
-  <body>
-    <div class="wrapper">
+<script type="text/x-handlebars">
+  {{outlet}}
+</script>
 
-      <script type="text/x-handlebars">
-        <div class="wrapper"> 
-        {{outlet}}
-        </div>
-        <div id="footer"></div>
-      </script>
+<script type="text/x-handlebars" data-template-name="users">
+   <div class="col-1-2 wrapper">
+   {{action load}}
+   <p>Still waiting</p>
+    <ol>
+      {{#each user in model}}
+      <li>
+        {{user.name}}: Added {{fromNow valueBinding="createdAt"}}        
+        <button {{ action removeUser user }}>Remove</button>
+      </li>
+      {{/each}}
+    </ol>  
+  </div>
+  {{outlet}}
+</script>
 
-      <script type="text/x-handlebars" data-template-name="users">
-         <div class="col-1-2 wrapper">
-         //{{action load}}
-         <p>Still waiting</p>
-          <ol>
-            {{#each user in model}}
-            <li>
-              {{user.name}}: Added {{fromNow valueBinding="createdAt"}}        
-              <button {{ action removeUser user }}>Remove</button>
-            </li>
-            {{/each}}
-          </ol>  
-        </div>
-        {{outlet}}
-      </script>
+<script type="text/x-handlebars" data-template-name="users/new">
+  <div class="col-1-2">
+    <p>Add to the Queue</p>
+    <p> {{view Noq.NameField valueBinding="name" placeholder="name"}} </p>
+    <p> {{view Noq.MobileField valueBinding="mobile" placeholder="mobile"}}</p>
+    <p> {{view Noq.EmailField valueBinding="email" placeholder="email"}}</p>
+    <button {{ action createUser }}>Add Customer to Queue</button>
+  </div>
+  {{outlet}}
+</script>
 
-      <script type="text/x-handlebars" data-template-name="users/new">
-        <div class="col-1-2">
-          <p>Add to the Queue</p>
-          <p> {{view Noq.NameField valueBinding="name" placeholder="name"}} </p>
-          <p> {{view Noq.MobileField valueBinding="mobile" placeholder="mobile"}}</p>
-          <p> {{view Noq.EmailField valueBinding="email" placeholder="email"}}</p>
-          <button {{ action createUser }}>Add Customer to Queue</button>
-        </div>
-        {{outlet}}
-      </script>
+<script type="text/x-handlebars" data-template-name="users/show">
+  <p>Show: {{name}}</p>
+</script>
 
-      <script type="text/x-handlebars" data-template-name="users/show">
-        <p>Show: {{name}}</p>
-      </script>
+<script type="text/x-handlebars" data-template-name="users/remove">
+  <p>remove: {{name}}</p>
+</script>
 
-      <script type="text/x-handlebars" data-template-name="users/remove">
-        <p>remove: {{name}}</p>
-      </script>
-
-      <script type="text/x-handlebars">
-       <p>Created {{fromNow valueBinding="createdAt"}}</p>
-        {{outlet}}
-      </script>
-
-    </div>
-  </body>
-</html>
-
-
-
-
-
-
+<script type="text/x-handlebars">
+ <p>Created {{fromNow valueBinding="createdAt"}}</p>
+  {{outlet}}
+</script>

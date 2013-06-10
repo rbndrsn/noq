@@ -37,6 +37,7 @@ $half-grid-pad  : $grid-pad/2 ;
   width: 100%; 
   @include respond-to(snake) {
     width: 50%; } 
+  padding-bottom: 45px;
   }
 
 // thirds

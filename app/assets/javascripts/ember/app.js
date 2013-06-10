@@ -7,6 +7,7 @@
 
 
 Noq = Ember.Application.create({
+  rootElement: "#noq",
   LOG_TRANSITIONS: true,
   NameField: Ember.TextField.extend({
     isValid: function() {
