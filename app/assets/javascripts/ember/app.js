@@ -2,7 +2,6 @@
 //= require ./models/store
 //= require ./models/user
 //= require ./controllers/usersController
-//= require ./views/user.js
 //= require ./router
 
 

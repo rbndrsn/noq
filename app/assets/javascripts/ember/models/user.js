@@ -20,7 +20,6 @@ Noq.UserStore = Noq.Store.extend({
   name: 'users',
   model: Noq.User,
   deserialize: function(properties) {
-    console.log("properties: ", properties);
     return {
       name: properties.name,
       joinedQueue: properties.joinedQueue,
@@ -31,7 +30,6 @@ Noq.UserStore = Noq.Store.extend({
   },
 
   all: function() {
-    console.log('calling all users');
     return this.get('hydratedObjects').sort(function(a,b) {
       return a.get('joinedQueue') > b.get('joinedQueue');
     });

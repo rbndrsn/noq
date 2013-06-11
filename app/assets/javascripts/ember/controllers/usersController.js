@@ -6,11 +6,10 @@ Noq.UsersController = Ember.ArrayController.extend({
   
   updateCurrentTime: function() {
     this.notifyPropertyChange('currentTime');
-    Ember.run.later(this, 'updateCurrentTime', 1000);
+    Ember.run.later(this, 'updateCurrentTime', 300000);
   },
   
   currentTime: function(user) {
-    console.log("user: ", user);
     return moment(user.get('createdAt')).fromNow(); 
   }.property()
 });
@@ -35,7 +34,6 @@ Noq.UsersNewController = Ember.ObjectController.extend({
       data: JSON.stringify(d),
       contentType: "application/json",
       success: function(data) {
-        console.log("Email and text sent! ", data);
       }
     });
   }
@@ -48,6 +46,7 @@ Noq.UsersController = Ember.ArrayController.extend({
   removeUser: function(user) {
     user.destroy();
     user.commit();
+    this.notifyPropertyChange(this.content);
   }
 });
 

@@ -33,14 +33,10 @@ Noq.Store = Ember.Object.extend({
 
   commit: function(id) {
     var object = this.find(id);
-    console.log("object: ", object);
     if (!this.get('hydratedObjects').contains(object)) {
       this.get('hydratedObjects').addObject(object);
     }
     if (object.get('isDestroyed')) {
-      console.log("deleting the object on simperium");
-      console.log("the bucket: ", this.get('bucket'));
-      console.log(this.get('bucket').update(id, null));
     } else {
       this.get('bucket').update(id);
     }
@@ -51,7 +47,6 @@ Noq.Store = Ember.Object.extend({
     properties.id = id;
     var object = this.find(id);
     object.setProperties(properties);
-    console.log("properties", properties);
     return object;
   },
 
@@ -65,9 +60,7 @@ Noq.Store = Ember.Object.extend({
 
     bucket.on('local', function(id) {
       var object = self.find(id);
-      console.log('in local callback');
       if (object.get('isDestroyed')) {
-        console.log('isDestroyed');
         return null
       } else {
         return object.forWire();
