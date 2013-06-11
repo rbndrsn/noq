@@ -1,9 +1,10 @@
+require 'bcrypt'
+
 class User < ActiveRecord::Base
-  require 'bcrypt'
   
   has_secure_password
 
-  attr_accessible :email_address, :first_name, :last_name, :name, :password, :password_confirmation
+  attr_accessible :email_address, :first_name, :last_name, :password, :password_confirmation
 
   validates :email_address, :first_name, :last_name, :presence => true
   
@@ -12,6 +13,17 @@ class User < ActiveRecord::Base
   
   def name
     [self.first_name, self.last_name].compact.join(' ')
+  end
+
+  def new_password
+    password = SecureRandom.uuid
+    self.password = password
+    if self.save
+      UserMailer.password_reset_email(self, password).deliver
+      true
+    else
+      false
+    end
   end
   
   private

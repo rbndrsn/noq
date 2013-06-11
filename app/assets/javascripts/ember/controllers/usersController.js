@@ -22,13 +22,14 @@ Noq.UsersNewController = Ember.ObjectController.extend({
     user.set('timeInQueue', new Date());
     user.commit();
 
+    this.get('target').transitionTo('users');
     this.get('target').transitionTo('users.new');
   }
 });
 
-Noq.UsersController = Ember.ObjectController.extend({
+Noq.UsersController = Ember.ArrayController.extend({
   sortProperties: [ 'joinedQueue' ],
-  sortAscending: false,
+  sortAscending: true,
   removeUser: function(user) {
     user.destroy();
     user.commit();

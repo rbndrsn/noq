@@ -11,32 +11,28 @@
       <header role="banner">
         <nav class="main_navigation" role="primary">
           <%= link_to "Home", root_path %>
-          <%= link_to "Login", login_path %>
-          <%= link_to "Signup", signup_path %>
-          <%= link_to "Logout", logout_path %>
+          <%= link_to "Sign In", login_path %>
+          <%= link_to "Sign Up", signup_path %>
+          <%= link_to "Log Out", logout_path %>
         </nav>
         <div>
-          <h1>N&ouml;Q</h1>
+          <h1>NoQ</h1>
         </div>
       </header>
       <div id="noq" class="content">
+        <% if flash[:notice] %>
+          <div class="alert"><%= flash[:notice] %></div>
+        <% end %>
+        <% if flash[:error] %>
+          <div class="error"><%= flash[:error] %></div>
+        <% end %>
+
         <%= yield %>
       </div>
       <footer>
         <p>&copy; 2013 Rob Anderson</p>
       </footer> 
     </div>
-    <% unless @load_ember == false %>
-      <script src="https://js.simperium.com/v0.1/"></script>
-      <script type="text/javascript">
-        window.SIMPERIUM_APP_ID = 'measures-star-2a4';
-        window.SIMPERIUM_TOKEN = '0140d03df72843718c688ac19ec2fdc4';
-        window.simperium = new Simperium(window.SIMPERIUM_APP_ID, {
-          token : window.SIMPERIUM_TOKEN
-        });
-      </script>
-      <%= javascript_include_tag "application" %>
-    <% end %>
   </body>
 </html>
 
