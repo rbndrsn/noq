@@ -22,6 +22,14 @@ class HomeController < ApplicationController
       redirect_to root_url
     end
   end
+
+# data from ember app
+
+  def enqueue
+    puts params
+
+    render :json => params
+  end
   
 end
 

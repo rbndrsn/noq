@@ -22,8 +22,22 @@ Noq.UsersNewController = Ember.ObjectController.extend({
     user.set('timeInQueue', new Date());
     user.commit();
 
+    this.enqueue(user.getProperties('name','mobile','email'));
+
     this.get('target').transitionTo('users');
     this.get('target').transitionTo('users.new');
+  },
+
+  enqueue: function(d) {
+    $.ajax({
+      method: 'POST',
+      url: '/api/enqueue',
+      data: JSON.stringify(d),
+      contentType: "application/json",
+      success: function(data) {
+        console.log("Email and text sent! ", data);
+      }
+    });
   }
 });
 

@@ -51,6 +51,7 @@ Noq.Store = Ember.Object.extend({
     properties.id = id;
     var object = this.find(id);
     object.setProperties(properties);
+    console.log("properties", properties);
     return object;
   },
 

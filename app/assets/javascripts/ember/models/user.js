@@ -11,7 +11,9 @@ Noq.User.find = function(id) {
 }
 
 Noq.User.createRecord = function(properties) {
-  return Noq.User.store.createRecord(properties);
+  var user = Noq.User.store.createRecord(properties);
+  var d = user.getProperties("name","mobile","email");
+  return user;
 }
 
 Noq.UserStore = Noq.Store.extend({

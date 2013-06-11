@@ -5,6 +5,7 @@ Noq::Application.routes.draw do
   get "logout" => "sessions#destroy", :as => :logout
   get "reset" => "users#reset_password", :as => :reset
   post "reset" => "users#deliver_password", :as => :reset
+  post "api/enqueue" => "home#enqueue"
   resources :users, only: [:create]
   resources :sessions, only: [:new, :create, :destroy]
 end
