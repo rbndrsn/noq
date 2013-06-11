@@ -24,7 +24,14 @@
 //= require ./ember/app
 //= require home
 
+$(function() {
 
+  var hideAlert = function() {
+    $('div.alert').fadeOut(200); 
+  }
 
+  setTimeout(hideAlert, 2000);
+  
+});
 
 
