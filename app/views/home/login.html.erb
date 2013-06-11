@@ -1,12 +1,9 @@
-<div class="form wrapper col-1-4">
-  <h2>Log in</h2>
+<div class="form wrapper col-1-2">
+  <h2>Log in</h2> 
   <%= form_tag '/sessions' %>
     <p><input type="text" name="email_address" placeholder="Email address"></p>
     <p><input type="password" name="password" placeholder="Password"></p>
-    <p>
-      <input class="button" type="submit" value="Log in"> 
-        <%= link_to "Forgotten Password?",  reset_path %>
-        <%= link_to 'Not Registered? Sign Up Here', signup_path %>
-    </p>
+    <p><input class="button" type="submit" value="Log in">
+    <p><%= link_to "Rest Password", reset_path, :class => "remove-underline-link" %> or <%= link_to 'Sign Up Here', signup_path, :class => "remove-underline-link" %></p>    
   </form>
 </div>
