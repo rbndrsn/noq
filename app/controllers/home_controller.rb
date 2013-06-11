@@ -1,10 +1,10 @@
 class HomeController < ApplicationController
   def index
     unless session[:user_id]
-      redirect_to login_path, flash: { notice: 'You are not logged in' }
+      redirect_to login_path
     end
 
-    gon.current_user = 7 #current_user
+    gon.current_user = @user #current_user
     
   end
 

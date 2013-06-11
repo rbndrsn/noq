@@ -3,6 +3,9 @@
   <%= form_tag '/sessions' %>
     <p><input type="text" name="email_address" placeholder="Email address"></p>
     <p><input type="password" name="password" placeholder="Password"></p>
-    <p><input class="button" type="submit" value="Log in"> Reset Password?</p>
+    <p>
+      <input class="button" type="submit" value="Log in"> 
+      <%= link_to "Forgotten Password?", reset_path %>
+    </p>
   </form>
 </div>
