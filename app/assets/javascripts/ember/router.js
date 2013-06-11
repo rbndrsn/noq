@@ -19,6 +19,9 @@ Noq.IndexRoute = Ember.Route.extend({
 Noq.UsersRoute = Ember.Route.extend({
   model: function() {
     return Noq.User.find();
+  },
+  setupController: function(controller) {
+    controller.set('content', Noq.User.find());
   }
 });
 

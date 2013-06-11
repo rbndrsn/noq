@@ -8,17 +8,13 @@
 </script>
 <%= javascript_include_tag "application" %>
 
-<script type="text/x-handlebars">
-  {{outlet}}
-</script>
-
 <script type="text/x-handlebars" data-template-name="users">
    <div class="col-1-2 wrapper">
    <p>Still waiting:</p>
     <ol>
-      {{#each user in model}}
+      {{#each user in controller}}
       <li>
-        {{user.name}}: Added {{fromNow valueBinding="createdAt"}}        
+        {{user.name}}: Added {{fromNow valueBinding="user.joinedQueue"}}        
         <a class="remove-underline-link" href="#" {{action removeUser user}}>x</a>
       </li>
       {{/each}}

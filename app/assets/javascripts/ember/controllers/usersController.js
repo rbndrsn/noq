@@ -28,8 +28,9 @@ Noq.UsersNewController = Ember.ObjectController.extend({
 });
 
 Noq.UsersController = Ember.ArrayController.extend({
-  sortProperties: [ 'joinedQueue' ],
+  content: [],
   sortAscending: true,
+  sortProperties: [ 'joinedQueue' ],
   removeUser: function(user) {
     user.destroy();
     user.commit();

@@ -26,6 +26,13 @@ Noq.UserStore = Noq.Store.extend({
       mobile: properties.mobile,
       email: properties.email
     }
-  }
+  },
+
+  all: function() {
+    console.log('calling all users');
+    return this.get('hydratedObjects').sort(function(a,b) {
+      return a.get('joinedQueue') > b.get('joinedQueue');
+    });
+  },
 });
 

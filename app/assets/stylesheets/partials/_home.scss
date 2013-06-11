@@ -38,7 +38,7 @@ footer {
   text-decoration: none; 
 }
 
-/* flat queue button */
+/* flat button */
 
 .button{
   background: $brand-beta;
@@ -50,5 +50,4 @@ footer {
   &:hover, &:focus {
     background: darken($brand-beta, 5%);
   }
-
 }
