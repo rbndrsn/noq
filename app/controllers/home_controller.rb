@@ -3,13 +3,12 @@ class HomeController < ApplicationController
     unless session[:user_id]
       redirect_to login_path
     end
-
-    gon.current_user = @user #current_user
-    
   end
 
   def signup
-    @load_ember = falsei
+
+# don't load ember app
+    @load_ember = false
     @user = User.new
   end
 
@@ -26,7 +25,6 @@ class HomeController < ApplicationController
 # data from ember app
 
   def enqueue
-    puts params[:mobile]
     
     # Set up Twilio client
     @client = Twilio::REST::Client.new(ENV['TWILIO_SID'], ENV['TWILIO_AUTH'])
@@ -36,8 +34,9 @@ class HomeController < ApplicationController
       @message = @client.account.sms.messages.create({
         :from => ENV['TWILIO_NUM'],
         :to => params[:mobile],
-        :body => params[:name]
+        :body =>  "Welcome to the party #{params[:name]}! We look forward to seeing you again in 25 minutes."
       })
+
     rescue Exception => e
       # Failed!
       puts e

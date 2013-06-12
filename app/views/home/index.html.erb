@@ -9,8 +9,8 @@
 <%= javascript_include_tag "application" %>
 
 <script type="text/x-handlebars" data-template-name="users">
-   <div class="col-1-2 wrapper">
-   <p>Still waiting:</p>
+   <div class="col-1-2">
+   <p>Current Queue Members:</p>
     <ol>
       {{#each user in controller}}
       <li>
@@ -25,7 +25,7 @@
 
 <script type="text/x-handlebars" data-template-name="users/new">
   <div class="col-1-2">
-    <p>New customer:</p>
+    <p>New Customer:</p>
     <p> {{view Noq.NameField valueBinding="name" placeholder="name"}} </p>
     <p> {{view Noq.MobileField valueBinding="mobile" placeholder="mobile"}}</p>
     <p> {{view Noq.EmailField valueBinding="email" placeholder="email"}}</p>

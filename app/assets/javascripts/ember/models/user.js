@@ -1,3 +1,5 @@
+// User Model
+
 Noq.User = Noq.Model.extend({
   fields: ['id', 'name', 'joinedQueue', 'timeInQueue', 'mobile', 'email']
 });

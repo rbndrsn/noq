@@ -10,6 +10,7 @@ class SessionsController < ApplicationController
       session[:user_id] = @user.id
       
       redirect_to root_url, flash: { notice: "Thank you for signing in!" }
+      
     else
       redirect_to login_path, flash: { error: "Password or email incorrect" }
     end

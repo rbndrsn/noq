@@ -5,6 +5,8 @@
 //= require ./router
 
 
+// Text Fields with RegExfor Validations 
+
 Noq = Ember.Application.create({
   rootElement: "#noq",
   LOG_TRANSITIONS: true,

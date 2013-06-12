@@ -4,9 +4,11 @@ Noq.UsersController = Ember.ArrayController.extend({
     this.updateCurrentTime();
   },
   
+  // update current time
+
   updateCurrentTime: function() {
     this.notifyPropertyChange('currentTime');
-    Ember.run.later(this, 'updateCurrentTime', 300000);
+    Ember.run.later(this, 'updateCurrentTime', 1000);
   },
   
   currentTime: function(user) {
@@ -18,7 +20,6 @@ Noq.UsersNewController = Ember.ObjectController.extend({
   createUser: function() {
     user = this.get('model');
     user.set('joinedQueue', new Date());
-    user.set('timeInQueue', new Date());
     user.commit();
 
     this.enqueue(user.getProperties('name','mobile','email'));
@@ -26,6 +27,8 @@ Noq.UsersNewController = Ember.ObjectController.extend({
     this.get('target').transitionTo('users');
     this.get('target').transitionTo('users.new');
   },
+
+  //send user data to Rails app
 
   enqueue: function(d) {
     $.ajax({
