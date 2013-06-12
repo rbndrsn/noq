@@ -22,9 +22,11 @@ class HomeController < ApplicationController
     end
   end
 
-# data from ember app
+# data from ember, send sms and email
 
   def enqueue
+
+    EnqueueMailer.wait_confirmation_email(params[:name], params[:email]).deliver
     
     # Set up Twilio client
     @client = Twilio::REST::Client.new(ENV['TWILIO_SID'], ENV['TWILIO_AUTH'])
