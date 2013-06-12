@@ -25,11 +25,11 @@
 
 <script type="text/x-handlebars" data-template-name="users/new">
   <div class="col-1-2">
-    <p>Add to the Queue:</p>
+    <p>New customer:</p>
     <p> {{view Noq.NameField valueBinding="name" placeholder="name"}} </p>
     <p> {{view Noq.MobileField valueBinding="mobile" placeholder="mobile"}}</p>
     <p> {{view Noq.EmailField valueBinding="email" placeholder="email"}}</p>
-    <button class="button"{{ action createUser }}>Enqueue</button>
+    <button class="button"{{ action createUser }}>Add to queue</button>
   </div>
   {{outlet}}
 </script>

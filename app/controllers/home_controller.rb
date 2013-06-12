@@ -9,7 +9,7 @@ class HomeController < ApplicationController
   end
 
   def signup
-    @load_ember = false
+    @load_ember = falsei
     @user = User.new
   end
 
@@ -26,7 +26,23 @@ class HomeController < ApplicationController
 # data from ember app
 
   def enqueue
-    puts params
+    puts params[:mobile]
+    
+    # Set up Twilio client
+    @client = Twilio::REST::Client.new(ENV['TWILIO_SID'], ENV['TWILIO_AUTH'])
+
+    # Attempt to send message
+    begin
+      @message = @client.account.sms.messages.create({
+        :from => ENV['TWILIO_NUM'],
+        :to => params[:mobile],
+        :body => params[:name]
+      })
+    rescue Exception => e
+      # Failed!
+      puts e
+      return false
+    end
 
     render :json => params
   end
