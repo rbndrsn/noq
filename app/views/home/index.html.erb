@@ -15,7 +15,7 @@
       {{#each user in controller}}
       <li>
         {{user.name}}: Added {{fromNow valueBinding="user.joinedQueue"}}        
-        <a class="remove-underline-link" href="#" {{action removeUser user}}>x</a>
+        <a class="remove-underline-link" {{action removeUser user}}>x</a>
       </li>
       {{/each}}
     </ol>  

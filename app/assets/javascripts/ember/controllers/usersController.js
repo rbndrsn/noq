@@ -49,7 +49,6 @@ Noq.UsersController = Ember.ArrayController.extend({
   removeUser: function(user) {
     user.destroy();
     user.commit();
-    this.notifyPropertyChange(this.content);
   }
 });
 
