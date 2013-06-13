@@ -42,7 +42,8 @@ class HomeController < ApplicationController
     rescue Exception => e
       # Failed!
       puts e
-      return false
+      render :text => e.message
+      return
     end
 
     render :json => params

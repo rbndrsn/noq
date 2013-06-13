@@ -49,6 +49,7 @@ Noq.UsersController = Ember.ArrayController.extend({
   removeUser: function(user) {
     user.destroy();
     user.commit();
+    user.store.get('hydratedObjects').removeObject(user);
     this.notifyPropertyChange(this.content);
   }
 });
